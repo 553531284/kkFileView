@@ -42,7 +42,7 @@ public class ConfigConstants {
     private static String pdfBookmarkDisable;
     private static Boolean fileUploadDisable;
     private static String tifPreviewType;
-    private static String beiAn;
+    private static String beian;
     private static String[] prohibit = {};
     private static String size;
     private static String password;
@@ -74,7 +74,7 @@ public class ConfigConstants {
     public static final String DEFAULT_PROHIBIT = "exe,dll";
     public static final String DEFAULT_PASSWORD = "123456";
     public static final String DEFAULT_PDF2_JPG_DPI = "105";
-    public static final String DEFAULT_OFFICE_TyPEWEB_DISABLE = "web";
+    public static final String DEFAULT_OFFICE_TYPE_WEB = "web";
     public static final String DEFAULT_DELETE_SOURCE_FILE = "true";
 
     public static Boolean isCacheEnabled() {
@@ -368,15 +368,15 @@ public class ConfigConstants {
         ConfigConstants.tifPreviewType = tifPreviewType;
     }
 
-    public static String getBeiAn() {
-        return beiAn;
+    public static String getBeian() {
+        return beian;
     }
-    @Value("${beiAn:无}")
-    public void setBeiAn(String beiAn) {
-        setBeiAnValue(beiAn);
+    @Value("${beian:default}")
+    public void setBeian(String beian) {
+        setBeianValue(beian);
     }
-    public static void setBeiAnValue(String beiAn) {
-        ConfigConstants.beiAn = beiAn;
+    public static void setBeianValue(String beian) {
+        ConfigConstants.beian = beian;
     }
     public static String[] getProhibit() {
         return prohibit;
@@ -404,7 +404,7 @@ public class ConfigConstants {
     public static String getPassword() {
         return password;
     }
-    @Value("${sc.password:123456}")
+    @Value("${delete.password:123456}")
     public void setPassword(String password) {
         setPasswordValue(password);
     }
@@ -424,14 +424,14 @@ public class ConfigConstants {
         ConfigConstants.pdf2JpgDpi = pdf2JpgDpi;
     }
 
-    public static String getofficeTypeWeb() {
+    public static String getOfficeTypeWeb() {
         return officeTypeWeb;
     }
     @Value("${office.type.web:web}")
-    public void setofficeTypeWeb(String officeTypeWeb) {
-        setofficeTypeWebValue(officeTypeWeb);
+    public void setOfficeTypeWeb(String officeTypeWeb) {
+        setOfficeTypeWebValue(officeTypeWeb);
     }
-    public static void setofficeTypeWebValue(String officeTypeWeb) {
+    public static void setOfficeTypeWebValue(String officeTypeWeb) {
         ConfigConstants.officeTypeWeb = officeTypeWeb;
     }
 

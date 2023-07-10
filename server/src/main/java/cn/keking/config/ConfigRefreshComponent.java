@@ -55,7 +55,7 @@ public class ConfigRefreshComponent {
                 String tifPreviewType;
                 String prohibit;
                 String[] prohibitArray;
-                String beiAn;
+                String beian;
                 String size;
                 String password;
                 int pdf2JpgDpi;
@@ -86,11 +86,11 @@ public class ConfigRefreshComponent {
                     fileUploadDisable = Boolean.parseBoolean(properties.getProperty("file.upload.disable", ConfigConstants.DEFAULT_FILE_UPLOAD_DISABLE));
                     tifPreviewType = properties.getProperty("tif.preview.type", ConfigConstants.DEFAULT_TIF_PREVIEW_TYPE);
                     size = properties.getProperty("spring.servlet.multipart.max-file-size", ConfigConstants.DEFAULT_SIZE);
-                    beiAn = properties.getProperty("beiAn", ConfigConstants.DEFAULT_BEIAN);
+                    beian = properties.getProperty("beian", ConfigConstants.DEFAULT_BEIAN);
                     prohibit = properties.getProperty("prohibit", ConfigConstants.DEFAULT_PROHIBIT);
-                    password = properties.getProperty("sc.password", ConfigConstants.DEFAULT_PASSWORD);
+                    password = properties.getProperty("delete.password", ConfigConstants.DEFAULT_PASSWORD);
                     pdf2JpgDpi = Integer.parseInt(properties.getProperty("pdf2jpg.dpi", ConfigConstants.DEFAULT_PDF2_JPG_DPI));
-                    officeTypeWeb = properties.getProperty("office.type.web", ConfigConstants.DEFAULT_OFFICE_TyPEWEB_DISABLE);
+                    officeTypeWeb = properties.getProperty("office.type.web", ConfigConstants.DEFAULT_OFFICE_TYPE_WEB);
                     deleteSourceFile =  Boolean.parseBoolean(properties.getProperty("delete.source.file", ConfigConstants.DEFAULT_DELETE_SOURCE_FILE));
                     prohibitArray = prohibit.split(",");
 
@@ -111,12 +111,12 @@ public class ConfigRefreshComponent {
                     ConfigConstants.setPdfBookmarkDisableValue(pdfBookmarkDisable);
                     ConfigConstants.setFileUploadDisableValue(fileUploadDisable);
                     ConfigConstants.setTifPreviewTypeValue(tifPreviewType);
-                    ConfigConstants.setBeiAnValue(beiAn);
+                    ConfigConstants.setBeianValue(beian);
                     ConfigConstants.setSizeValue(size);
                     ConfigConstants.setProhibitValue(prohibitArray);
                     ConfigConstants.setPasswordValue(password);
                     ConfigConstants.setPdf2JpgDpiValue(pdf2JpgDpi);
-                    ConfigConstants.setofficeTypeWebValue(officeTypeWeb);
+                    ConfigConstants.setOfficeTypeWebValue(officeTypeWeb);
                     ConfigConstants.setDeleteSourceFileValue(deleteSourceFile);
                     setWatermarkConfig(properties);
                     bufferedReader.close();
