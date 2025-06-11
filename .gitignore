@@ -27,5 +27,6 @@ nbdist/
 .vscode/
 .DS_Store
 
+out/
 server/src/main/cache/
 server/src/main/file/
