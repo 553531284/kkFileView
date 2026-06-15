@@ -1,10 +1,12 @@
 FROM ubuntu:24.04
 
-RUN echo "Types: deb" > /etc/apt/sources.list.d/ubuntu.sources && \
-    echo "URIs: https://mirrors.aliyun.com/ubuntu/" >> /etc/apt/sources.list.d/ubuntu.sources && \
-    echo "Suites: noble noble-updates noble-backports noble-security" >> /etc/apt/sources.list.d/ubuntu.sources && \
-    echo "Components: main restricted universe multiverse" >> /etc/apt/sources.list.d/ubuntu.sources && \
-    echo "Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg" >> /etc/apt/sources.list.d/ubuntu.sources && \
+RUN ARCH=$(dpkg --print-architecture) && \
+    if [ "$ARCH" = "arm64" ]; then \
+        sed -i 's|http://ports.ubuntu.com/ubuntu-ports|https://mirrors.aliyun.com/ubuntu-ports|g' /etc/apt/sources.list.d/ubuntu.sources; \
+    else \
+        sed -i 's|http://archive.ubuntu.com/ubuntu|https://mirrors.aliyun.com/ubuntu|g' /etc/apt/sources.list.d/ubuntu.sources && \
+        sed -i 's|http://security.ubuntu.com/ubuntu|https://mirrors.aliyun.com/ubuntu|g' /etc/apt/sources.list.d/ubuntu.sources; \
+    fi && \
     apt-get -o Acquire::https::Verify-Peer=false update && \
     apt-get -o Acquire::https::Verify-Peer=false install -y --no-install-recommends ca-certificates && \
     apt-get update && \
