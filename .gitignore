@@ -28,6 +28,5 @@ nbdist/
 .DS_Store
 .artifacts/
 
-out/
 server/src/main/cache/
 server/src/main/file/
